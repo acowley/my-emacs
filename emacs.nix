@@ -11,6 +11,17 @@ in {
     # inherit (super) pdf-tools;
     inherit (super) vterm;
 
+    ligature = super.trivialBuild {
+      pname = "ligature";
+      version = "0.0";
+      src = nixpkgs.fetchFromGitHub {
+        owner = "mickeynp/";
+        repo = "ligature.el";
+        rev = "d3426509cc5436a12484d91e48abd7b62429b7ef";
+        hash = "sha256-baFDkfQLM2MYW2QhMpPnOMSfsLlcp9fO5xfyioZzOqg=";
+      };
+    };
+
     # lean4-mode = super.melpaBuild {
     #   pname = "lean4-mode";
     #   version = "1";
@@ -427,6 +438,8 @@ in {
     nim-mode
 
     bazel
+
+    ligature
   ];
   myemacsPkgs = (self.emacsPackagesFor self.emacsGit).overrideScope' self.myEmacsPackageOverrides;
   myemacs = ((self.emacsPackagesFor self.emacsGit).overrideScope' self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
