@@ -39,20 +39,20 @@ in {
     #   '';
     # };
 
-    org-roam-ui = super.trivialBuild {
-      pname = "org-roam-ui";
-      version = "2021-10-12";
-      src = nixpkgs.fetchFromGitHub {
-        owner = "org-roam";
-        repo = "org-roam-ui";
-        rev = "50ebd6c39b40b9b22cd34d932fa9aa5cc334ff37";
-        hash = "sha256-I5NGREiViMXDqmY7/4juvLMUqsmnPuRBzaV6pi85TJQ=";
-      };
-      packageRequires = [self.f self.websocket self.org-roam self.simple-httpd];
-      postFixup = ''
-        cp -r out $out/share/emacs/site-lisp
-      '';
-    };
+    # org-roam-ui = super.trivialBuild {
+    #   pname = "org-roam-ui";
+    #   version = "2021-10-12";
+    #   src = nixpkgs.fetchFromGitHub {
+    #     owner = "org-roam";
+    #     repo = "org-roam-ui";
+    #     rev = "50ebd6c39b40b9b22cd34d932fa9aa5cc334ff37";
+    #     hash = "sha256-I5NGREiViMXDqmY7/4juvLMUqsmnPuRBzaV6pi85TJQ=";
+    #   };
+    #   packageRequires = [self.f self.websocket self.org-roam self.simple-httpd];
+    #   postFixup = ''
+    #     cp -r out $out/share/emacs/site-lisp
+    #   '';
+    # };
 
     org-clock-reminder = super.trivialBuild {
       pname = "org-clock-reminder";
