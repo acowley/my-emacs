@@ -22,6 +22,8 @@ in {
       };
     };
 
+    org = self.elpaPackages.org;
+
     # lean4-mode = super.melpaBuild {
     #   pname = "lean4-mode";
     #   version = "1";
