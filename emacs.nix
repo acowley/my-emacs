@@ -58,14 +58,21 @@ in {
 
     org-clock-reminder = super.trivialBuild {
       pname = "org-clock-reminder";
-      version = "2021-10-10";
+      # version = "2021-10-10";
+      # src = nixpkgs.fetchFromGitHub {
+      #   owner = "inickey";
+      #   repo = "org-clock-reminder";
+      #   rev = "9f9b88348ffbc6628f2286dcb4c064b520d0a638";
+      #   hash = "sha256-CnOLlgAPOCquOr++wrL+LayOq02NKawAHqut15TAobY=";
+      # };
+      version = "2021-12-14";
       src = nixpkgs.fetchFromGitHub {
-        owner = "inickey";
+        owner = "acowley";
         repo = "org-clock-reminder";
-        rev = "9f9b88348ffbc6628f2286dcb4c064b520d0a638";
-        hash = "sha256-CnOLlgAPOCquOr++wrL+LayOq02NKawAHqut15TAobY=";
+        rev = "2d290f39032b655b79e3421ec17936e6ba35d108";
+        hash = "sha256-EJSlTFVn5oI4yjR71Kei0daZJqP+AMYojceXDt/hL9U=";
       };
-      packageRequires = [self.org];
+      packageRequires = [self.org self.alert];
       postFixup = ''
         cp -r icons $out/share/emacs/site-lisp
       '';
