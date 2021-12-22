@@ -287,7 +287,6 @@ in {
     direnv
     dired-du
     dired-rsync
-    mu4e-conversation
     ace-window
     notmuch
     literate-calc-mode
