@@ -338,6 +338,7 @@ in {
     selectrum-prescient
     consult
     consult-flycheck
+    consult-projectile
     consult-dir
     marginalia
     embark
