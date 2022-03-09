@@ -1,7 +1,7 @@
 diff -ruN --exclude '*~' A/doom-modeline.el B/doom-modeline.el
---- A/doom-modeline.el	2021-06-04 10:16:12.459665843 -0400
-+++ B/doom-modeline.el	2021-06-04 10:17:47.778005423 -0400
-@@ -94,7 +94,7 @@
+--- A/doom-modeline.el	2022-03-09 00:25:44.333169404 -0500
++++ B/doom-modeline.el	2022-03-09 00:27:16.393206479 -0500
+@@ -92,7 +92,7 @@
    '(objed-state misc-info persp-name battery grip irc mu4e gnus github debug repl lsp minor-modes input-method indent-info buffer-encoding major-mode process vcs checker))
  
  (doom-modeline-def-modeline 'minimal
@@ -10,12 +10,7 @@ diff -ruN --exclude '*~' A/doom-modeline.el B/doom-modeline.el
    '(media-info major-mode))
  
  (doom-modeline-def-modeline 'special
-@@ -102,11 +102,11 @@
-   '(objed-state misc-info battery irc-buffers debug minor-modes input-method indent-info buffer-encoding major-mode process))
- 
- (doom-modeline-def-modeline 'project
--  '(bar window-number buffer-default-directory)
-+  '(bar window-number modals buffer-default-directory)
+@@ -104,7 +104,7 @@
    '(misc-info battery irc mu4e gnus github debug minor-modes input-method major-mode process))
  
  (doom-modeline-def-modeline 'dashboard
@@ -24,7 +19,7 @@ diff -ruN --exclude '*~' A/doom-modeline.el B/doom-modeline.el
    '(misc-info battery irc mu4e gnus github debug minor-modes input-method major-mode process))
  
  (doom-modeline-def-modeline 'vcs
-@@ -114,15 +114,15 @@
+@@ -112,15 +112,15 @@
    '(misc-info battery irc mu4e gnus github debug minor-modes buffer-encoding major-mode process))
  
  (doom-modeline-def-modeline 'package
@@ -43,7 +38,7 @@ diff -ruN --exclude '*~' A/doom-modeline.el B/doom-modeline.el
    '(misc-info media-info major-mode process vcs))
  
  (doom-modeline-def-modeline 'message
-@@ -130,7 +130,7 @@
+@@ -128,7 +128,7 @@
    '(objed-state misc-info battery debug minor-modes input-method indent-info buffer-encoding major-mode))
  
  (doom-modeline-def-modeline 'pdf
