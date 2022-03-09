@@ -15,7 +15,7 @@ in {
       pname = "ligature";
       version = "0.0";
       src = nixpkgs.fetchFromGitHub {
-        owner = "mickeynp/";
+        owner = "mickeynp";
         repo = "ligature.el";
         rev = "d3426509cc5436a12484d91e48abd7b62429b7ef";
         hash = "sha256-baFDkfQLM2MYW2QhMpPnOMSfsLlcp9fO5xfyioZzOqg=";
