@@ -319,6 +319,7 @@ in {
     org-marginalia
     clip2org
     org-clock-reminder
+    org-modern
 
     deft
 
