@@ -320,6 +320,7 @@ in {
     clip2org
     org-clock-reminder
     org-modern
+    svg-tag-mode
 
     deft
 
