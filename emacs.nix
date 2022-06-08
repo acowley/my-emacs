@@ -455,8 +455,8 @@ in {
   # myemacsGccPkgs = (self.emacsPackagesFor self.emacsGcc).overrideScope' self.myEmacsPackageOverrides;
   # myemacsGcc = ((self.emacsPackagesFor self.emacsGcc).overrideScope' self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
   emacsGitGcc = self.emacsGit.override { nativeComp = true; };
-  myemacsGccPkgs = (self.emacsPackagesFor self.emacsPgtkGcc).overrideScope' self.myEmacsPackageOverrides;
-  myemacsGcc = ((self.emacsPackagesFor self.emacsPgtkGcc).overrideScope' self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
+  myemacsGccPkgs = (self.emacsPackagesFor self.emacsGitNativeComp).overrideScope' self.myEmacsPackageOverrides;
+  myemacsGcc = ((self.emacsPackagesFor self.emacsGitNativeComp).overrideScope' self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
 
   emacsGccMac = self.emacsGcc.overrideAttrs (old: {
     configureFlags = old.configureFlags or [] ++ ["--with-mac-metal"];
