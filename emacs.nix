@@ -230,7 +230,7 @@ in {
       # escaping those characters within the sed command string.
       super.melpaPackages.apropospriate-theme.overrideAttrs (_: {
         patchPhase = ''
-          sed 's/(base00   (if (eq variant \x27light) "#FAFAFA" "#424242"))/(base00   (if (eq variant \x27light) "#FBF8EF" "#212121"))/' -i apropospriate.el
+          sed 's/(base00   (if (eq variant \x27light) "\(#[0-9A-F]*\)" "#424242"))/(base00   (if (eq variant \x27light) "\1" "#212121"))/' -i apropospriate.el
         '';
       });
 
