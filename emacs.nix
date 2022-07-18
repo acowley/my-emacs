@@ -332,6 +332,7 @@ in {
     consult-flycheck
     consult-projectile
     consult-dir
+    consult-org-roam
     marginalia
     embark
     embark-consult
