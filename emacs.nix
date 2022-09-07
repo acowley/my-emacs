@@ -326,8 +326,6 @@ in {
     company-box
     prescient
     company-prescient
-    selectrum
-    selectrum-prescient
     consult
     consult-flycheck
     consult-projectile
@@ -449,6 +447,9 @@ in {
     zig-mode
 
     protobuf-mode
+
+    vertico
+    orderless
   ];
   myemacsPkgs = (self.emacsPackagesFor self.emacsGit).overrideScope' self.myEmacsPackageOverrides;
   myemacs = ((self.emacsPackagesFor self.emacsGit).overrideScope' self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
