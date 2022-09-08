@@ -322,10 +322,6 @@ in {
 
     #
     olivetti
-    company
-    company-box
-    prescient
-    company-prescient
     consult
     consult-flycheck
     consult-projectile
@@ -450,6 +446,7 @@ in {
 
     vertico
     orderless
+    corfu
   ];
   myemacsPkgs = (self.emacsPackagesFor self.emacsGit).overrideScope' self.myEmacsPackageOverrides;
   myemacs = ((self.emacsPackagesFor self.emacsGit).overrideScope' self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
