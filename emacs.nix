@@ -322,6 +322,9 @@ in {
 
     #
     olivetti
+    company
+    prescient
+    company-prescient
     consult
     consult-flycheck
     consult-projectile
