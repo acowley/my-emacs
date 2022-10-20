@@ -276,6 +276,7 @@ in {
     benchmark-init
     direnv
     dired-du
+    dired-narrow
     dired-rsync
     ace-window
     notmuch
