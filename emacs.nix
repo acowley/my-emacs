@@ -282,6 +282,7 @@ in {
     notmuch
     literate-calc-mode
     expand-region
+    docker-tramp
 
     # org packages
     # orgPackages.org-plus-contrib
@@ -337,17 +338,16 @@ in {
     embark
     embark-consult
 
-    helm
-    helm-company
-    helm-swoop
-    helm-dash
-    helm-tramp
-    docker-tramp
-    helm-projectile
-    helm-gtags
-    helm-org-rifle
-    helm-notmuch
-    wgrep-helm
+    # helm
+    # helm-company
+    # helm-swoop
+    # helm-dash
+    # helm-tramp
+    # helm-projectile
+    # helm-gtags
+    # helm-org-rifle
+    # helm-notmuch
+    # wgrep-helm
 
     # imenu-anywhere
     god-mode
@@ -452,7 +452,7 @@ in {
 
     vertico
     orderless
-    corfu
+    # corfu
   ];
   myemacsPkgs = (self.emacsPackagesFor self.emacsGit).overrideScope' self.myEmacsPackageOverrides;
   myemacs = ((self.emacsPackagesFor self.emacsGit).overrideScope' self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
