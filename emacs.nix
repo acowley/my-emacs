@@ -281,6 +281,7 @@ in {
     ace-window
     notmuch
     literate-calc-mode
+    expand-region
 
     # org packages
     # orgPackages.org-plus-contrib
