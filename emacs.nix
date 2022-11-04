@@ -282,7 +282,6 @@ in {
     notmuch
     literate-calc-mode
     expand-region
-    docker-tramp
 
     # org packages
     # orgPackages.org-plus-contrib
