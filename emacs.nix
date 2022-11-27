@@ -450,6 +450,7 @@ in {
     protobuf-mode
 
     vertico
+    vertico-prescient
     orderless
     # corfu
   ];
