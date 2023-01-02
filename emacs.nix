@@ -452,7 +452,8 @@ in {
     vertico
     vertico-prescient
     orderless
-    # corfu
+    corfu
+    cape
 
     package-lint
   ];
