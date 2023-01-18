@@ -446,6 +446,7 @@ in {
     ledger-mode
     typescript-mode
     zig-mode
+    unisonlang-mode
 
     protobuf-mode
 
