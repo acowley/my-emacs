@@ -306,6 +306,7 @@ in {
     org-ref
     org-roam
     org-roam-bibtex
+    emacsql-sqlite-builtin
     org-books
     org-ql
     org-marginalia
