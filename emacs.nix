@@ -329,6 +329,7 @@ in {
     company
     prescient
     company-prescient
+    corfu-prescient
     consult
     consult-flycheck
     consult-projectile
