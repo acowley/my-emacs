@@ -236,7 +236,7 @@ in {
 
     doom-modeline =
       super.melpaPackages.doom-modeline.overrideAttrs (_: {
-        patches = [./doom-modals-everywhere.patch];
+        patches = [./doom-modals-everywhere.patch ./doom-god-no-icon.patch];
     });
 
     # structured-haskell-mode = super.melpaBuild {
@@ -271,6 +271,7 @@ in {
     dashboard
     page-break-lines
     all-the-icons
+    nerd-icons
     impatient-mode
     # esup
     benchmark-init

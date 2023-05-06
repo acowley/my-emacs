@@ -1,0 +1,12 @@
+diff -Naur '--exclude=*~' A/doom-modeline-segments.el B/doom-modeline-segments.el
+--- A/doom-modeline-segments.el	2023-05-04 16:45:28.937656732 -0400
++++ B/doom-modeline-segments.el	2023-05-04 16:45:53.883436289 -0400
+@@ -1772,7 +1772,7 @@
+   (when (bound-and-true-p god-local-mode)
+     (doom-modeline--modal-icon
+      "<G>" 'doom-modeline-god "God mode"
+-     "account_circle" "🙇")))
++     nil "🙇")))
+ 
+ (defsubst doom-modeline--ryo ()
+   "The current ryo-modal state which is enabled by the command `ryo-modal-mode'."
