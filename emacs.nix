@@ -310,6 +310,7 @@ in {
     org-ref
     org-roam
     org-roam-bibtex
+    xeft
     emacsql-sqlite-builtin
     org-books
     org-ql
