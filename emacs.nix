@@ -370,6 +370,8 @@ in {
     ess
 
     haskell-mode
+
+    pyvenv
     # hindent
     # dante
   # ] ++ nixpkgs.lib.optionals (builtins.pathExists ~/src/intero) [
