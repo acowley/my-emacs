@@ -236,7 +236,10 @@ in {
 
     doom-modeline =
       super.melpaPackages.doom-modeline.overrideAttrs (_: {
-        patches = [./doom-modals-everywhere.patch ./doom-god-no-icon.patch];
+        patches = [
+          ./doom-modals-everywhere.patch
+          # ./doom-god-no-icon.patch
+        ];
     });
 
     # structured-haskell-mode = super.melpaBuild {
