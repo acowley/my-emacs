@@ -1,6 +1,6 @@
-diff -ruN '--exclude=*~' A/doom-modeline.el B/doom-modeline.el
---- A/doom-modeline.el	2022-11-03 22:06:32.822778977 -0400
-+++ B/doom-modeline.el	2022-11-03 22:08:00.198633277 -0400
+diff -Naur --exclude '*~' A/doom-modeline.el B/doom-modeline.el
+--- A/doom-modeline.el	2023-09-07 11:25:46.869019491 -0400
++++ B/doom-modeline.el	2023-09-07 11:27:02.420891749 -0400
 @@ -92,7 +92,7 @@
    '(compilation objed-state misc-info persp-name battery grip irc mu4e gnus github debug repl lsp minor-modes input-method indent-info buffer-encoding major-mode process vcs checker time))
  
@@ -44,6 +44,6 @@ diff -ruN '--exclude=*~' A/doom-modeline.el B/doom-modeline.el
  (doom-modeline-def-modeline 'pdf
 -  '(bar window-number matches buffer-info pdf-pages)
 +  '(bar window-number modals matches buffer-info pdf-pages)
-   '(compilation  misc-info major-mode process vcs time))
+   '(compilation misc-info major-mode process vcs time))
  
  (doom-modeline-def-modeline 'org-src
