@@ -282,6 +282,8 @@ in {
     dired-du
     dired-narrow
     dired-rsync
+    diredfl
+    dired-git-info
     ace-window
     notmuch
     literate-calc-mode
