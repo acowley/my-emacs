@@ -477,8 +477,11 @@ in {
   # myemacsGccPkgs = (self.emacsPackagesFor self.emacsGcc).overrideScope' self.myEmacsPackageOverrides;
   # myemacsGcc = ((self.emacsPackagesFor self.emacsGcc).overrideScope' self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
   emacsGitGcc = self.emacsGit.override { nativeComp = true; };
-  myemacsGccPkgs = (self.emacsPackagesFor self.emacsGit).overrideScope' self.myEmacsPackageOverrides;
-  myemacsGcc = ((self.emacsPackagesFor self.emacsGit).overrideScope' self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
+
+  # myemacsGccPkgs = (self.emacsPackagesFor self.emacsGit).overrideScope' self.myEmacsPackageOverrides;
+  # myemacsGcc = ((self.emacsPackagesFor self.emacsGit).overrideScope' self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
+  myemacsGccPkgs = (self.emacsPackagesFor self.emacs-unstable).overrideScope' self.myEmacsPackageOverrides;
+  myemacsGcc = ((self.emacsPackagesFor self.emacs-unstable).overrideScope' self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
 
   myemacsLsp = ((self.emacsPackagesFor self.emacsLsp).overrideScope' self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
 
