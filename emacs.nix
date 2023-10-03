@@ -522,17 +522,12 @@ in {
       p.tree-sitter-zig
     ]))
   ];
-  myemacsPkgs = (self.emacsPackagesFor self.emacsGit).overrideScope' self.myEmacsPackageOverrides;
-  myemacs = ((self.emacsPackagesFor self.emacsGit).overrideScope' self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
+  # myemacsPkgs = (self.emacsPackagesFor self.emacs-git).overrideScope' self.myEmacsPackageOverrides;
+  # myemacs = ((self.emacsPackagesFor self.emacs-git).overrideScope' self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
   
-  # myemacsGccPkgs = (self.emacsPackagesFor self.emacsGcc).overrideScope' self.myEmacsPackageOverrides;
-  # myemacsGcc = ((self.emacsPackagesFor self.emacsGcc).overrideScope' self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
-  emacsGitGcc = self.emacsGit.override { nativeComp = true; };
-
-  # myemacsGccPkgs = (self.emacsPackagesFor self.emacsGit).overrideScope' self.myEmacsPackageOverrides;
-  # myemacsGcc = ((self.emacsPackagesFor self.emacsGit).overrideScope' self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
-  myemacsGccPkgs = (self.emacsPackagesFor self.emacs-unstable).overrideScope' self.myEmacsPackageOverrides;
-  myemacsGcc = ((self.emacsPackagesFor self.emacs-unstable).overrideScope' self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
+  myemacs = self.emacs-unstable;
+  myemacsGcc = ((self.emacsPackagesFor self.myemacs).overrideScope' self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
+  myemacsGccPkgs = (self.emacsPackagesFor self.myemacs).overrideScope' self.myEmacsPackageOverrides;
 
   myemacsLsp = ((self.emacsPackagesFor self.emacsLsp).overrideScope' self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
 
