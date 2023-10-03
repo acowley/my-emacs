@@ -470,6 +470,57 @@ in {
 
     package-lint
     editorconfig
+
+    (treesit-grammars.with-grammars (p: [
+      p.tree-sitter-bash
+      p.tree-sitter-bibtex
+      p.tree-sitter-c
+      p.tree-sitter-c-sharp
+      p.tree-sitter-clojure
+      p.tree-sitter-cmake
+      p.tree-sitter-cpp
+      p.tree-sitter-css
+      p.tree-sitter-cuda
+      p.tree-sitter-dockerfile
+      p.tree-sitter-dot
+      p.tree-sitter-elisp
+      p.tree-sitter-elixir
+      p.tree-sitter-glsl
+      p.tree-sitter-haskell
+      p.tree-sitter-html
+      p.tree-sitter-http
+      p.tree-sitter-java
+      p.tree-sitter-javascript
+      p.tree-sitter-jsdoc
+      p.tree-sitter-json
+      p.tree-sitter-json5
+      p.tree-sitter-julia
+      p.tree-sitter-latex
+      p.tree-sitter-ledger
+      p.tree-sitter-llvm
+      p.tree-sitter-lua
+      p.tree-sitter-make
+      p.tree-sitter-markdown
+      p.tree-sitter-markdown-inline
+      p.tree-sitter-nix
+      p.tree-sitter-ocaml
+      p.tree-sitter-ocaml-interface
+      p.tree-sitter-perl
+      p.tree-sitter-php
+      p.tree-sitter-python
+      p.tree-sitter-r
+      p.tree-sitter-regex
+      p.tree-sitter-ruby
+      p.tree-sitter-rust
+      p.tree-sitter-scheme
+      p.tree-sitter-scss
+      p.tree-sitter-sql
+      p.tree-sitter-toml
+      p.tree-sitter-typescript
+      p.tree-sitter-verilog
+      p.tree-sitter-yaml
+      p.tree-sitter-zig
+    ]))
   ];
   myemacsPkgs = (self.emacsPackagesFor self.emacsGit).overrideScope' self.myEmacsPackageOverrides;
   myemacs = ((self.emacsPackagesFor self.emacsGit).overrideScope' self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
