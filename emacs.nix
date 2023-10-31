@@ -520,6 +520,7 @@ in {
       p.tree-sitter-verilog
       p.tree-sitter-yaml
       p.tree-sitter-zig
+      p.tree-sitter-wgsl
     ]))
   ];
   # myemacsPkgs = (self.emacsPackagesFor self.emacs-git).overrideScope' self.myEmacsPackageOverrides;
