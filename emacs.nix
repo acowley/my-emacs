@@ -471,6 +471,8 @@ in {
     package-lint
     editorconfig
 
+    surround
+
     (treesit-grammars.with-grammars (p: [
       p.tree-sitter-bash
       p.tree-sitter-bibtex
