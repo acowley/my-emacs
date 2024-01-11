@@ -139,6 +139,7 @@ in {
       patches = old.patches or [] ++ [
         ./lsp-unicode.patch
       ];
+      LSP_USE_PLISTS=true;
     });
 
     god-mode = super.god-mode.overrideAttrs (old: {
