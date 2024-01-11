@@ -473,6 +473,9 @@ in {
     editorconfig
 
     surround
+    kagi
+    password-store
+    password-store-otp
 
     (treesit-grammars.with-grammars (p: [
       p.tree-sitter-bash
