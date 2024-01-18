@@ -477,6 +477,9 @@ in {
     password-store
     password-store-otp
 
+    org-present
+    visual-fill-column
+
     (treesit-grammars.with-grammars (p: [
       p.tree-sitter-bash
       p.tree-sitter-bibtex
