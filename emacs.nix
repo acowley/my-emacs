@@ -22,6 +22,14 @@ in {
       };
     };
 
+    org-tidy = super.org-tidy.overrideAttrs (old: {
+      # Fix an issue with key bindings being overridden.
+      # See: https://github.com/jxq0/org-tidy/issues/11#issuecomment-1950301932
+      postPatch = old.postPatch or "" + ''
+        sed "s/'local-map/'keymap/" -i org-tidy.el
+      '';
+    });
+
     org = self.elpaPackages.org;
 
     # lean4-mode = super.melpaBuild {
@@ -322,6 +330,7 @@ in {
     org-clock-reminder
     org-modern
     svg-tag-mode
+    org-tidy
 
     deft
 
