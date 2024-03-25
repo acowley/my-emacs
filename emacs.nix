@@ -86,6 +86,18 @@ in {
       '';
     };
 
+    ob-duckdb = super.trivialBuild {
+      pname = "ob-duckdb";
+      version = "2024-02-04";
+      src = nixpkgs.fetchFromGitHub {
+        owner = "smurp";
+        repo = "ob-duckdb";
+        rev = "3fd1123e7552a97d676be8aebd22dfbe8c6cfd0e";
+        hash = "sha256-dZWHFNIPeU1vcbIuZLRdEv6uQi6U/OmWYRmps75Ol5k=";
+      };
+      packageRequires = [ self.org ];
+    };
+
     clip2org = super.trivialBuild {
       pname = "clip2org";
       version = "2021-06-11";
@@ -311,6 +323,7 @@ in {
     ox-gfm
     ob-ipython
     ob-nim
+    ob-duckdb
     org-noter
     org-pdftools
     org-noter-pdftools
