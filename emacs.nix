@@ -495,6 +495,7 @@ in {
     editorconfig
 
     surround
+    easy-kill
     kagi
     password-store
     password-store-otp
