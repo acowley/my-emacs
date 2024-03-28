@@ -324,6 +324,7 @@ in {
     ob-ipython
     ob-nim
     ob-duckdb
+    ob-http
     org-noter
     org-pdftools
     org-noter-pdftools
