@@ -345,6 +345,7 @@ in {
     org-modern
     svg-tag-mode
     org-tidy
+    org-sliced-images
 
     deft
 
