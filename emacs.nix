@@ -561,7 +561,18 @@ in {
   # myemacsPkgs = (self.emacsPackagesFor self.emacs-git).overrideScope' self.myEmacsPackageOverrides;
   # myemacs = ((self.emacsPackagesFor self.emacs-git).overrideScope' self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
   
-  myemacs = self.emacs-unstable;
+  # myemacs = self.emacs-unstable;
+  myemacs = self.emacs-unstable.overrideAttrs (old: {
+    patches = old.patches or [] ++ [
+      # Fix an issue with displaying SVG images that may have a
+      # viewBox attribute but no width or height set.
+      # https://lists.gnu.org/archive/html/bug-gnu-emacs/2023-08/msg00533.html
+      (nixpkgs.fetchpatch {
+        url = "https://lists.gnu.org/archive/html/bug-gnu-emacs/2023-08/txtiivFeeJiEX.txt";
+        hash = "sha256-KSVWwLf8Dxb+0B54MbdtTqNHuh7j3jU6bojN3XXeHf4=";
+      })
+    ];
+  });
   myemacsGcc = ((self.emacsPackagesFor self.myemacs).overrideScope' self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
   myemacsGccPkgs = (self.emacsPackagesFor self.myemacs).overrideScope' self.myEmacsPackageOverrides;
 
