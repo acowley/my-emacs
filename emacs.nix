@@ -504,6 +504,7 @@ in {
 
     org-present
     visual-fill-column
+    pikchr-mode
 
     (treesit-grammars.with-grammars (p: [
       p.tree-sitter-bash
