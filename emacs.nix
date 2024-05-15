@@ -11,6 +11,28 @@ in {
     # inherit (super) pdf-tools;
     inherit (super) vterm;
 
+    macro-slides = super.trivialBuild {
+      pname = "macro-slides";
+      version = "0.0";
+      src = nixpkgs.fetchFromGitHub {
+        owner = "positron-solutions";
+        repo = "macro-slides";
+        rev = "4af6955e2328983a4764141ae3da9b855ea0cd9c";
+        hash = "sha256-JGI5qlHo6VnV6x5CMsxgiPURu+OF7wUUaUZhZOIaW7U=";
+      };
+    };
+
+    master-of-ceremonies = super.trivialBuild {
+      pname = "master-of-ceremonies";
+      version = "0.0";
+      src = nixpkgs.fetchFromGitHub {
+        owner = "positron-solutions";
+        repo = "master-of-ceremonies";
+        rev = "a621a1c8f249f94e5e7b300d2a7f6a50ac3d0a8c";
+        hash = "sha256-5np1ifL9j66LsCXjRaxJq+ClJ5WNMbEJTWW53MpWl/g=";
+      };
+    };
+
     ligature = super.trivialBuild {
       pname = "ligature";
       version = "0.0";
@@ -505,6 +527,9 @@ in {
     org-present
     visual-fill-column
     pikchr-mode
+
+    macro-slides
+    master-of-ceremonies
 
     (treesit-grammars.with-grammars (p: [
       p.tree-sitter-bash
