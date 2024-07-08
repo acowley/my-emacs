@@ -368,6 +368,7 @@ in {
     svg-tag-mode
     org-tidy
     org-sliced-images
+    org-bookmark-heading
 
     deft
 
