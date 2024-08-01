@@ -529,7 +529,7 @@ in {
     visual-fill-column
     pikchr-mode
 
-    casual # transient menus for calc
+    casual-calc # transient menus for calc
     macro-slides
     master-of-ceremonies
 
