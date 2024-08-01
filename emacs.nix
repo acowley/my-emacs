@@ -459,7 +459,7 @@ in {
     racer
 
     dhall-mode
-    opencl-mode
+    opencl-c-mode
     purescript-mode
     psc-ide
     paredit
