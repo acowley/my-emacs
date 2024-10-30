@@ -434,7 +434,7 @@ in {
     lsp-ui
     lsp-haskell
     lsp-treemacs
-    lsp-docker
+    # lsp-docker
     ccls
 
     cmake-mode
@@ -479,7 +479,7 @@ in {
     xterm-color
     highlight-indent-guides
     vterm
-    docker
+    # docker
     dockerfile-mode
     qml-mode
     emojify
@@ -587,21 +587,26 @@ in {
   ];
   # myemacsPkgs = (self.emacsPackagesFor self.emacs-git).overrideScope' self.myEmacsPackageOverrides;
   # myemacs = ((self.emacsPackagesFor self.emacs-git).overrideScope' self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
-  
-  # myemacs = self.emacs-unstable;
-  myemacs = self.emacs-unstable.overrideAttrs (old: {
-    patches = old.patches or [] ++ [
-      # Fix an issue with displaying SVG images that may have a
-      # viewBox attribute but no width or height set.
-      # https://lists.gnu.org/archive/html/bug-gnu-emacs/2023-08/msg00533.html
-      (nixpkgs.fetchpatch {
-        url = "https://lists.gnu.org/archive/html/bug-gnu-emacs/2023-08/txtiivFeeJiEX.txt";
-        hash = "sha256-KSVWwLf8Dxb+0B54MbdtTqNHuh7j3jU6bojN3XXeHf4=";
-      })
-    ];
-  });
-  myemacsGcc = ((self.emacsPackagesFor self.myemacs).overrideScope' self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
-  myemacsGccPkgs = (self.emacsPackagesFor self.myemacs).overrideScope' self.myEmacsPackageOverrides;
+
+  # myemacs = self.emacs-pgtk;
+  myemacs = self.emacs-unstable;
+  # myemacs = self.emacs-unstable.overrideAttrs (old: {
+    # patches = old.patches or [] ++ [
+    #   # Fix an issue with displaying SVG images that may have a
+    #   # viewBox attribute but no width or height set.
+    #   # https://lists.gnu.org/archive/html/bug-gnu-emacs/2023-08/msg00533.html
+    #   (nixpkgs.fetchpatch {
+    #     url = "https://lists.gnu.org/archive/html/bug-gnu-emacs/2023-08/txtiivFeeJiEX.txt";
+    #     hash = "sha256-KSVWwLf8Dxb+0B54MbdtTqNHuh7j3jU6bojN3XXeHf4=";
+    #   })
+    # ];
+  # });
+  #myemacsGcc = ((self.emacsPackagesFor self.myemacs).overrideScope' self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
+  #myemacsGccPkgs = (self.emacsPackagesFor self.myemacs).overrideScope' self.myEmacsPackageOverrides;
+  myemacsGcc = ((self.emacsPackagesFor self.myemacs).overrideScope self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
+  myemacsGccPkgs = (self.emacsPackagesFor self.myemacs).overrideScope self.myEmacsPackageOverrides;
+
+  myemacsPgtk = ((self.emacsPackagesFor self.emacs-pgtk).overrideScope self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
 
   myemacsLsp = ((self.emacsPackagesFor self.emacsLsp).overrideScope' self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
 
