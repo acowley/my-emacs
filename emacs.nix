@@ -277,6 +277,17 @@ in {
         '';
       });
 
+    emacsql = super.melpaPackages.emacsql.overrideAttrs (_: {
+      src = nixpkgs.fetchFromGitHub {
+        owner = "magit";
+        repo = "emacsql";
+        # Roll back to an earlier version as something isn't updated
+        # yet in the build regarding sqlite.
+        rev = "fb05d0f72729a4b4452a3b1168a9b7b35a851a53";
+        hash = "sha256-MaL3t+2MhWOE6eLmt8m4ImpsKeNeUZ4S8zEoQVu51ZY=";
+      };
+    });
+
     # doom-modeline =
     #   super.melpaPackages.doom-modeline.overrideAttrs (_: {
     #     patches = [
