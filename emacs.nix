@@ -70,6 +70,17 @@ in {
     #     sed "s/(require 'rx)/(require 'rx)\n(require 'dash)/" -i lean4-syntax.el
     #   '';
     # };
+    ultra-scroll = super.trivialBuild rec {
+      pname = "ultra-scroll";
+      ename = "ultra-scroll";
+      version = "2025-01-18";
+      src = nixpkgs.fetchFromGitHub {
+        owner = "jdtsmith";
+        repo = "ultra-scroll";
+        rev = "2e3b9997ae1a469e878feaa0af23a23685a0fbed";
+        hash = "sha256-9+3T5tXPRuRtENt/Rr0Ss3LZJlTOwpGePbREqofN2j0=";
+      };
+    };
 
     # org-roam-ui = super.trivialBuild {
     #   pname = "org-roam-ui";
@@ -543,6 +554,7 @@ in {
     casual-calc # transient menus for calc
     macro-slides
     master-of-ceremonies
+    ultra-scroll
 
     (treesit-grammars.with-grammars (p: [
       p.tree-sitter-bash
