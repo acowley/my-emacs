@@ -32,9 +32,12 @@ in {
         hash = "sha256-nmC1MVSG8YHabg7SFUeSJQ1k303Z9tsJDd7BF8w35OU=";
       };
       propagatedUserEnvPkgs = with super.melpaPackages; [
-        posframe
+        posframe markdown-mode
       ] ++ [super.elpaPackages.vertico-posframe];
       buildInputs = propagatedUserEnvPkgs;
+      prePatch = ''
+        sed -i 's/;;; Code:/;;; Code:\n\(require '"'"'nova-utils\)\n\(require '"'"'markdown-mode\)/' nova-eldoc.el
+      '';
     };
 
     master-of-ceremonies = super.trivialBuild {
