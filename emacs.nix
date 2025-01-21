@@ -22,6 +22,21 @@ in {
       };
     };
 
+    nova = super.trivialBuild rec {
+      pname = "nova";
+      version = "2025-01-18";
+      src = nixpkgs.fetchFromGitHub {
+        owner = "thisisran";
+        repo = "nova";
+        rev = "ae847b21870bb3facaea87dcc8acc2ea4e7590c5";
+        hash = "sha256-nmC1MVSG8YHabg7SFUeSJQ1k303Z9tsJDd7BF8w35OU=";
+      };
+      propagatedUserEnvPkgs = with super.melpaPackages; [
+        posframe
+      ] ++ [super.elpaPackages.vertico-posframe];
+      buildInputs = propagatedUserEnvPkgs;
+    };
+
     master-of-ceremonies = super.trivialBuild {
       pname = "master-of-ceremonies";
       version = "0.0";
@@ -555,6 +570,8 @@ in {
     macro-slides
     master-of-ceremonies
     ultra-scroll
+
+    nova
 
     (treesit-grammars.with-grammars (p: [
       p.tree-sitter-bash
