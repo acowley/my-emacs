@@ -22,6 +22,17 @@ in {
       };
     };
 
+    aidermacs = super.trivialBuild rec {
+      pname = "aidermacs";
+      version = "2025-03-07";
+      src = nixpkgs.fetchFromGitHub {
+        owner = "MatthewZMD";
+        repo = "aidermacs";
+        rev = "b4f88b8c5ec66e3063a1c605eb2b2920969dde51";
+        hash = "sha256-G8Hnf4sVi9aqj+DT2WLpKOHQgl3omosALG7VzTJ1gMU=";
+      };
+    };
+
     nova = super.trivialBuild rec {
       pname = "nova";
       version = "2025-01-18";
@@ -569,14 +580,15 @@ in {
     visual-fill-column
     pikchr-mode
 
-    casual-calc # transient menus for calc
-    macro-slides
-    master-of-ceremonies
+    # casual-calc # transient menus for calc
+    # macro-slides
+    # master-of-ceremonies
     ultra-scroll
 
     nova
 
     gptel
+    aidermacs
 
     (treesit-grammars.with-grammars (p: [
       p.tree-sitter-bash
