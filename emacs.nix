@@ -24,12 +24,12 @@ in {
 
     aidermacs = super.trivialBuild rec {
       pname = "aidermacs";
-      version = "2025-03-07";
+      version = "2025-03-16";
       src = nixpkgs.fetchFromGitHub {
         owner = "MatthewZMD";
         repo = "aidermacs";
-        rev = "b4f88b8c5ec66e3063a1c605eb2b2920969dde51";
-        hash = "sha256-G8Hnf4sVi9aqj+DT2WLpKOHQgl3omosALG7VzTJ1gMU=";
+        rev = "c346e7f22ec7a48837f929e3b8d46226c913f8bb";
+        hash = "sha256-a8+nQdu0ZzPetENPevQ7isNZ/+1DPECcX0DdcA1cXoU=";
       };
     };
 
