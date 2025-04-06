@@ -409,7 +409,7 @@ in {
     org-roam
     org-roam-bibtex
     xeft
-    emacsql-sqlite-builtin
+    # emacsql-sqlite-builtin
     org-books
     org-ql
     org-marginalia
@@ -499,12 +499,11 @@ in {
     ercn
     znc
 
-    twittering-mode
     corral
     avy
 
-    # rust-mode
-    rustic
+    rust-mode
+    # rustic
     cargo
     flycheck-rust
     racer
@@ -663,7 +662,26 @@ in {
   myemacsGcc = ((self.emacsPackagesFor self.myemacs).overrideScope self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
   myemacsGccPkgs = (self.emacsPackagesFor self.myemacs).overrideScope self.myEmacsPackageOverrides;
 
-  myemacsPgtk = ((self.emacsPackagesFor self.emacs-pgtk).overrideScope self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
+  # The emacs-overlay's `emacs-pgtk` derivation is based on
+  # `emacs-git` (i.e. built from `master` rather than a tagged
+  # release). They have renamed it to `emacs-git-pgtk` to better
+  # reflect that. But we don't need to build emacs from master to have
+  # pgtk support (which helps on Wayland). So here I use
+  # `emacs-unstable` from the overlay (which is the latest tagged
+  # release) but with the pgtk flag. nixpkgs now has its own
+  # `emacs-pgtk`, but the overlay shadows it. Hopefully things will
+  # eventually make sense. I think the `emacs30-pgtk` package refers
+  # to the derivation from nixpkgs, avoiding the overlay's shadowing
+  # of the `emacs-pgtk` name. A downside is that this will need
+  # updating when we have an emacs update.
+
+  # myemacsPgtk = ((self.emacsPackagesFor self.emacs-git-pgtk).overrideScope self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
+  # myemacsPgtk = ((self.emacsPackagesFor
+  #   (self.emacs-unstable.override {
+  #     withPgtk = true;
+  #   })).overrideScope self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
+  myemacsPgtk = ((self.emacsPackagesFor self.emacs30-pgtk).overrideScope self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
+
 
   myemacsLsp = ((self.emacsPackagesFor self.emacsLsp).overrideScope' self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
 
