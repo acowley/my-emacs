@@ -66,6 +66,17 @@ in {
       '';
     };
 
+    org-hide-drawers = super.trivialBuild rec {
+      pname = "org-hide-drawers";
+      version = "2025-03-31";
+      src = nixpkgs.fetchFromGitHub {
+        owner = "krisbalintona";
+        repo = "org-hide-drawers";
+        rev = "ae15d91066d9b021d06f7b9074b680adbbe48cce";
+        hash = "sha256-JjW/TZobW9A2aheDQciwnFXbZ6JknXLES4su7gdYo/0=";
+      };
+    };
+
     master-of-ceremonies = super.trivialBuild {
       pname = "master-of-ceremonies";
       version = "0.0";
@@ -437,6 +448,7 @@ in {
     org-modern
     svg-tag-mode
     org-tidy
+    org-hide-drawers
     org-sliced-images
     org-bookmark-heading
 
