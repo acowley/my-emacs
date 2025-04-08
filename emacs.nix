@@ -24,13 +24,28 @@ in {
 
     aidermacs = super.trivialBuild rec {
       pname = "aidermacs";
-      version = "2025-03-16";
+      version = "2025-05-01";
       src = nixpkgs.fetchFromGitHub {
         owner = "MatthewZMD";
         repo = "aidermacs";
-        rev = "c346e7f22ec7a48837f929e3b8d46226c913f8bb";
-        hash = "sha256-a8+nQdu0ZzPetENPevQ7isNZ/+1DPECcX0DdcA1cXoU=";
+        rev = "38aa5bfa5c5a66664abb5bb9cd7f191d1ac3d915";
+        hash = "sha256-0Z4LjBidnXo6orE3p9rImqAsuK/+44VZ78FOlUhAgpY=";
       };
+    };
+
+    gptel-aibo = super.trivialBuild rec {
+      pname = "gptel-aibo";
+      version = "2025-03-18";
+      src = nixpkgs.fetchFromGitHub {
+        owner = "dolmens";
+        repo = "gptel-aibo";
+        rev = "1016eff1eecc4831e26cae73f5b62626dfb3abf0";
+        hash = "sha256-kudWyHmYJrF0unZGl2l2n/pj+zmfx/MC6qzOA3Myv8A=";
+      };
+      propagatedUserEnvPkgs = with super.melpaPackages; [
+        gptel
+      ];
+      buildInputs = propagatedUserEnvPkgs;
     };
 
     nova = super.trivialBuild rec {
@@ -591,6 +606,7 @@ in {
     nova
 
     gptel
+    gptel-aibo
     aidermacs
 
     (treesit-grammars.with-grammars (p: [
