@@ -150,12 +150,16 @@ in {
 
     ob-duckdb = super.trivialBuild {
       pname = "ob-duckdb";
-      version = "2024-02-04";
+      # version = "2024-02-04";
+      version = "2025-04-07";
       src = nixpkgs.fetchFromGitHub {
-        owner = "smurp";
+        # owner = "smurp";
+        # rev = "3fd1123e7552a97d676be8aebd22dfbe8c6cfd0e";
+        # hash = "sha256-dZWHFNIPeU1vcbIuZLRdEv6uQi6U/OmWYRmps75Ol5k=";
+        owner = "gggion";
         repo = "ob-duckdb";
-        rev = "3fd1123e7552a97d676be8aebd22dfbe8c6cfd0e";
-        hash = "sha256-dZWHFNIPeU1vcbIuZLRdEv6uQi6U/OmWYRmps75Ol5k=";
+        rev = "9b9de7a0738b213ec7805d36ee9ba9968dfd7d1d";
+        hash = "sha256-znvroOLcNqvsymCZhf6IYQ3ari/dI4mX66+Hx/7zDAQ=";
       };
       packageRequires = [ self.org ];
     };
