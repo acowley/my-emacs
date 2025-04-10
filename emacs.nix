@@ -177,7 +177,7 @@ in {
     ob-duckdb = super.trivialBuild {
       pname = "ob-duckdb";
       # version = "2024-02-04";
-      version = "2025-04-07";
+      version = "2025-04-08";
       src = nixpkgs.fetchFromGitHub {
         # owner = "smurp";
         # rev = "3fd1123e7552a97d676be8aebd22dfbe8c6cfd0e";
