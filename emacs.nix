@@ -184,8 +184,8 @@ in {
         # hash = "sha256-dZWHFNIPeU1vcbIuZLRdEv6uQi6U/OmWYRmps75Ol5k=";
         owner = "gggion";
         repo = "ob-duckdb";
-        rev = "9b9de7a0738b213ec7805d36ee9ba9968dfd7d1d";
-        hash = "sha256-znvroOLcNqvsymCZhf6IYQ3ari/dI4mX66+Hx/7zDAQ=";
+        rev = "d56f98471783d15b9c9b672e2df463142047f78f";
+        hash = "sha256-VfP7UDcufbV3VkcN1W5p5osZTglIdyYiFa1VND10hGw=";
       };
       packageRequires = [ self.org ];
     };
