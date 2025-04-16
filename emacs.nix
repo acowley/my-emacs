@@ -24,12 +24,12 @@ in {
 
     aidermacs = super.trivialBuild rec {
       pname = "aidermacs";
-      version = "2025-05-01";
+      version = "2025-04-08";
       src = nixpkgs.fetchFromGitHub {
         owner = "MatthewZMD";
         repo = "aidermacs";
-        rev = "38aa5bfa5c5a66664abb5bb9cd7f191d1ac3d915";
-        hash = "sha256-0Z4LjBidnXo6orE3p9rImqAsuK/+44VZ78FOlUhAgpY=";
+        rev = "658eca5aaf63ab0f2ec732dc0b87f64f9e88a05d";
+        hash = "sha256-CTXn7enpQplSXlor4rGHOul6OdgZaf5mnqkzpTQ9wmM=";
       };
     };
 
@@ -44,6 +44,21 @@ in {
       };
       propagatedUserEnvPkgs = with super.melpaPackages; [
         gptel
+      ];
+      buildInputs = propagatedUserEnvPkgs;
+    };
+
+    gptel = super.trivialBuild rec {
+      pname = "gptel";
+      version = "2025-04-15";
+      src = nixpkgs.fetchFromGitHub {
+        owner = "karthink";
+        repo = "gptel";
+        rev = "a7e1dbbe3dae94a2d91f0df6209a6f01c64d8234";
+        hash = "sha256-rtxct7xy4649BHwpi3R19/bhSfbprPPgK4Nyu8sC//I=";
+      };
+      propagatedUserEnvPkgs = with super.melpaPackages; [
+        transient
       ];
       buildInputs = propagatedUserEnvPkgs;
     };
