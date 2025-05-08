@@ -24,13 +24,18 @@ in {
 
     aidermacs = super.trivialBuild rec {
       pname = "aidermacs";
-      version = "2025-04-08";
+      version = "2025-05-07";
       src = nixpkgs.fetchFromGitHub {
         owner = "MatthewZMD";
         repo = "aidermacs";
-        rev = "658eca5aaf63ab0f2ec732dc0b87f64f9e88a05d";
-        hash = "sha256-CTXn7enpQplSXlor4rGHOul6OdgZaf5mnqkzpTQ9wmM=";
+        rev = "43780ca542083e43041ba73b9c04a3a7dee9aea2";
+        hash = "sha256-IB+vFUdmmaOK9Mu+bTUpqGXNRE4ZFKjZsCOmx+WYvfM=";
       };
+      propagatedUserEnvPkgs = with super.melpaPackages; [
+        markdown-mode
+        transient
+      ];
+      buildInputs = propagatedUserEnvPkgs;
     };
 
     gptel-aibo = super.trivialBuild rec {
@@ -50,12 +55,12 @@ in {
 
     gptel = super.trivialBuild rec {
       pname = "gptel";
-      version = "2025-04-15";
+      version = "2025-05-07";
       src = nixpkgs.fetchFromGitHub {
         owner = "karthink";
         repo = "gptel";
-        rev = "a7e1dbbe3dae94a2d91f0df6209a6f01c64d8234";
-        hash = "sha256-rtxct7xy4649BHwpi3R19/bhSfbprPPgK4Nyu8sC//I=";
+        rev = "a7dde728eb6f6046641287d63e17ae8aef153119";
+        hash = "sha256-Xmql6QN46qI0BU5TbiiyEfyPPyoOnojw2dZ5f7Q4glc=";
       };
       propagatedUserEnvPkgs = with super.melpaPackages; [
         transient
