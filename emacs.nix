@@ -557,7 +557,7 @@ in {
     # rustic
     cargo
     flycheck-rust
-    racer
+    #racer
 
     dhall-mode
     opencl-c-mode
