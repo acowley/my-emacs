@@ -593,6 +593,8 @@ in {
     flyspell-correct
     gnuplot
 
+    jq-mode
+
     # lean4-mode
     org-roam-ui
     which-key
