@@ -22,21 +22,21 @@ in {
       };
     };
 
-    aidermacs = super.trivialBuild rec {
-      pname = "aidermacs";
-      version = "2025-05-07";
-      src = nixpkgs.fetchFromGitHub {
-        owner = "MatthewZMD";
-        repo = "aidermacs";
-        rev = "43780ca542083e43041ba73b9c04a3a7dee9aea2";
-        hash = "sha256-IB+vFUdmmaOK9Mu+bTUpqGXNRE4ZFKjZsCOmx+WYvfM=";
-      };
-      propagatedUserEnvPkgs = with super.melpaPackages; [
-        markdown-mode
-        transient
-      ];
-      buildInputs = propagatedUserEnvPkgs;
-    };
+    # aidermacs = super.trivialBuild rec {
+    #   pname = "aidermacs";
+    #   version = "2025-05-07";
+    #   src = nixpkgs.fetchFromGitHub {
+    #     owner = "MatthewZMD";
+    #     repo = "aidermacs";
+    #     rev = "43780ca542083e43041ba73b9c04a3a7dee9aea2";
+    #     hash = "sha256-IB+vFUdmmaOK9Mu+bTUpqGXNRE4ZFKjZsCOmx+WYvfM=";
+    #   };
+    #   propagatedUserEnvPkgs = with super.melpaPackages; [
+    #     markdown-mode
+    #     transient
+    #   ];
+    #   buildInputs = propagatedUserEnvPkgs;
+    # };
 
     gptel-aibo = super.trivialBuild rec {
       pname = "gptel-aibo";
@@ -641,6 +641,7 @@ in {
 
     gptel
     gptel-aibo
+    aider
     aidermacs
 
     (treesit-grammars.with-grammars (p: [
