@@ -268,10 +268,13 @@ in {
     });
 
     lsp-mode = super.lsp-mode.overrideAttrs (old: {
-      patches = old.patches or [] ++ [
-        ./lsp-unicode.patch
-      ];
+      # patches = old.patches or [] ++ [
+      #   ./lsp-unicode.patch
+      # ];
       LSP_USE_PLISTS=true;
+      postPatch = ''
+        sed -i 's/(getenv "LSP_USE_PLISTS")/"1"/' lsp-protocol.el
+      '';
     });
 
     god-mode = super.god-mode.overrideAttrs (old: {
