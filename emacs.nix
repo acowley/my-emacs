@@ -22,6 +22,23 @@ in {
       };
     };
 
+    goose = super.trivialBuild rec {
+      pname = "goose";
+      version = "2025-06-13";
+      src = nixpkgs.fetchFromGitHub {
+        owner = "aq2bq";
+        repo = "goose.el";
+        rev = "6ecb0b9482e32171971af4b99743c84b340dc578";
+        hash = "sha256-LI2ghfilcmF8r0O69FhNDrJpk33gyAWDl05bdsvDHPw=";
+      };
+      propagatedUserEnvPkgs = with super.melpaPackages; [
+        transient
+        vterm
+        consult
+      ];
+      buildInputs = propagatedUserEnvPkgs;
+    };
+
     # aidermacs = super.trivialBuild rec {
     #   pname = "aidermacs";
     #   version = "2025-05-07";
@@ -646,6 +663,7 @@ in {
     gptel-aibo
     aider
     aidermacs
+    goose
 
     (treesit-grammars.with-grammars (p: [
       p.tree-sitter-bash
