@@ -11,6 +11,22 @@ in {
     # inherit (super) pdf-tools;
     inherit (super) vterm;
 
+    south-theme = super.trivialBuild rec {
+      pname = "south-theme";
+      version = "2025-07-11";
+      src = nixpkgs.fetchFromGitHub {
+        owner = "SophieBosio";
+        repo = "south";
+        rev = "e0b881ad669055d3eda65c0eba3f36d0850d906b";
+        hash = "sha256-fGMT+xpWIwZCM8GlBv9StINg3W+9a4y8mEoVyzoTSM0=";
+      };
+      propagatedUserEnvPkgs = with super.melpaPackages; [
+        autothemer
+        magit-section
+      ];
+      buildInputs = propagatedUserEnvPkgs;
+    };
+
     macro-slides = super.trivialBuild {
       pname = "macro-slides";
       version = "0.0";
@@ -664,6 +680,7 @@ in {
     aider
     aidermacs
     goose
+    south-theme
 
     (treesit-grammars.with-grammars (p: [
       p.tree-sitter-bash
