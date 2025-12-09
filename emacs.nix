@@ -507,6 +507,7 @@ in {
     org-hide-drawers
     org-sliced-images
     org-bookmark-heading
+    outli
 
     deft
 
@@ -628,6 +629,8 @@ in {
     gif-screencast
     flyspell-correct
     gnuplot
+
+    file-info
 
     jq-mode
 
