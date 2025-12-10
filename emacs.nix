@@ -683,6 +683,7 @@ in {
     # aider
     aidermacs
     goose
+    tramp-hlo
     south-theme
 
     (treesit-grammars.with-grammars (p: [
