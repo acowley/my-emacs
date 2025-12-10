@@ -680,7 +680,7 @@ in {
 
     gptel
     gptel-aibo
-    aider
+    # aider
     aidermacs
     goose
     south-theme
