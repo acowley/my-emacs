@@ -227,21 +227,21 @@ in {
       '';
     };
 
-    ob-duckdb = super.trivialBuild {
-      pname = "ob-duckdb";
-      # version = "2024-02-04";
-      version = "2025-04-08";
-      src = nixpkgs.fetchFromGitHub {
-        # owner = "smurp";
-        # rev = "3fd1123e7552a97d676be8aebd22dfbe8c6cfd0e";
-        # hash = "sha256-dZWHFNIPeU1vcbIuZLRdEv6uQi6U/OmWYRmps75Ol5k=";
-        owner = "gggion";
-        repo = "ob-duckdb";
-        rev = "d56f98471783d15b9c9b672e2df463142047f78f";
-        hash = "sha256-VfP7UDcufbV3VkcN1W5p5osZTglIdyYiFa1VND10hGw=";
-      };
-      packageRequires = [ self.org ];
-    };
+    # ob-duckdb = super.trivialBuild {
+    #   pname = "ob-duckdb";
+    #   # version = "2024-02-04";
+    #   version = "2025-04-08";
+    #   src = nixpkgs.fetchFromGitHub {
+    #     # owner = "smurp";
+    #     # rev = "3fd1123e7552a97d676be8aebd22dfbe8c6cfd0e";
+    #     # hash = "sha256-dZWHFNIPeU1vcbIuZLRdEv6uQi6U/OmWYRmps75Ol5k=";
+    #     owner = "gggion";
+    #     repo = "ob-duckdb";
+    #     rev = "d56f98471783d15b9c9b672e2df463142047f78f";
+    #     hash = "sha256-VfP7UDcufbV3VkcN1W5p5osZTglIdyYiFa1VND10hGw=";
+    #   };
+    #   packageRequires = [ self.org ];
+    # };
 
     clip2org = super.trivialBuild {
       pname = "clip2org";
