@@ -27,6 +27,17 @@ in {
       buildInputs = propagatedUserEnvPkgs;
     };
 
+    eglot-header-line = super.trivialBuild rec {
+      pname = "eglot-header-line";
+      version = "2025-11-14";
+      src = nixpkgs.fetchFromGitHub {
+        owner = "soerlemans";
+        repo = "eglot-header-line";
+        rev = "aa963756180ea7b26bacfee0269b0cc4e47a1956";
+        hash = "sha256-8THvFDs9voBQLlkkKjYAhYmhLUfDow5SN47M2rubv+Y=";
+      };
+    };
+
     macro-slides = super.trivialBuild {
       pname = "macro-slides";
       version = "0.0";
@@ -575,6 +586,10 @@ in {
     lsp-treemacs
     # lsp-docker
     ccls
+    eglot-signature-eldoc-talkative
+    eldoc-box
+    sideline-eglot
+    eglot-header-line
 
     cmake-mode
 
