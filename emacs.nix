@@ -38,6 +38,23 @@ in {
       };
     };
 
+    claude-code-ide = super.trivialBuild rec {
+      pname = "claude-code-ide";
+      version = "2026-01-02";
+      src = nixpkgs.fetchFromGitHub {
+        owner = "manzaltu";
+        repo = "claude-code-ide.el";
+        rev = "760240d7f03ff16f90ede9d4f4243cd94f3fed73";
+        hash = "sha256-Abs8+r5bQSkRJC74TEq1RRZtvj4TYmL1Vijq6KO9GG4=";
+      };
+      propagatedUserEnvPkgs = with super.melpaPackages; [
+        websocket
+        transient
+        web-server
+      ];
+      buildInputs = propagatedUserEnvPkgs;
+    };
+
     macro-slides = super.trivialBuild {
       pname = "macro-slides";
       version = "0.0";
@@ -698,6 +715,8 @@ in {
     # aider
     aidermacs
     goose
+    claude-code-ide
+    eat
     tramp-hlo
     south-theme
 
