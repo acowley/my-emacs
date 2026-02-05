@@ -13,12 +13,12 @@ in {
 
     south-theme = super.trivialBuild rec {
       pname = "south-theme";
-      version = "2025-07-11";
+      version = "2025-11-11";
       src = nixpkgs.fetchFromGitHub {
         owner = "SophieBosio";
         repo = "south";
-        rev = "e0b881ad669055d3eda65c0eba3f36d0850d906b";
-        hash = "sha256-fGMT+xpWIwZCM8GlBv9StINg3W+9a4y8mEoVyzoTSM0=";
+        rev = "f7855656bb6c390b20358286d116124c0bd4190f";
+        hash = "sha256-TRnjRu2UyeCwZkkuh4/J8cCIQDfwXC05DeJ82cpGj9g=";
       };
       propagatedUserEnvPkgs = with super.melpaPackages; [
         autothemer
