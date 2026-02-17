@@ -719,6 +719,7 @@ in {
     eat
     tramp-hlo
     south-theme
+    flash
 
     (treesit-grammars.with-grammars (p: [
       p.tree-sitter-bash
