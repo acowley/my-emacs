@@ -512,6 +512,7 @@ in {
     ob-nim
     ob-duckdb
     ob-http
+    ob-mermaid
     org-noter
     org-pdftools
     org-noter-pdftools
