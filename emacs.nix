@@ -813,7 +813,8 @@ in {
   #   (self.emacs-unstable.override {
   #     withPgtk = true;
   #   })).overrideScope self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
-  myemacsPgtk = ((self.emacsPackagesFor self.emacs30-pgtk).overrideScope self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
+  # myemacsPgtk = ((self.emacsPackagesFor self.emacs30-pgtk).overrideScope self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
+  myemacsPgtk = ((self.emacsPackagesFor self.emacs-unstable-pgtk).overrideScope self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
 
 
   myemacsLsp = ((self.emacsPackagesFor self.emacsLsp).overrideScope' self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
