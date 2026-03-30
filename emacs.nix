@@ -638,7 +638,7 @@ in {
     plantuml-mode
     # redprl
     osx-dictionary
-    graphviz-dot-mode
+    # graphviz-dot-mode
     nix-buffer
     toml-mode
     markdown-mode
