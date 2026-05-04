@@ -1,11 +1,11 @@
 self: nixpkgs: 
 let selfPkgs = self; 
-    leanSrc = nixpkgs.fetchFromGitHub {
-      owner = "leanprover";
-      repo = "lean4";
-      rev = "52af4e24715ff1ad6618d952b618f35e2c4307f2";
-      sha256 = "sha256:1sp0lavr4vh7nqpysq68xrq9i57y6nr5bn4sy5sczpjhz82swmzz";
-    };
+    # leanSrc = nixpkgs.fetchFromGitHub {
+    #   owner = "leanprover";
+    #   repo = "lean4";
+    #   rev = "v4.2.0";
+    #   sha256 = "";
+    # };
 in {
   myEmacsPackageOverrides = self: super: super.melpaPackages // {
     # inherit (super) pdf-tools;
@@ -190,22 +190,6 @@ in {
 
     org = self.elpaPackages.org;
 
-    # lean4-mode = super.melpaBuild {
-    #   pname = "lean4-mode";
-    #   version = "1";
-    #   # src = selfPkgs.lean4-mode.src;
-    #   src = "${leanSrc}/lean4-mode";
-    #   packageRequires = with super.melpaPackages; [ dash f flycheck magit-section lsp-mode s ];
-    #   recipe = nixpkgs.writeText "recipe" ''
-    #     (lean4-mode :repo "leanprover/lean4" :fetcher github :files ("*.el"))
-    #   '';
-    #   fileSpecs = [ "*.el" ];
-    #     # tail -n +2 lean4-input.el > tmp.el
-    #     # mv tmp.el lean4-input.el
-    #   prePatch = ''
-    #     sed "s/(require 'rx)/(require 'rx)\n(require 'dash)/" -i lean4-syntax.el
-    #   '';
-    # };
     ultra-scroll = super.trivialBuild rec {
       pname = "ultra-scroll";
       ename = "ultra-scroll";
@@ -216,6 +200,36 @@ in {
         rev = "2e3b9997ae1a469e878feaa0af23a23685a0fbed";
         hash = "sha256-9+3T5tXPRuRtENt/Rr0Ss3LZJlTOwpGePbREqofN2j0=";
       };
+    };
+
+    lean4-mode = super.trivialBuild rec {
+      pname = "lean4-mode";
+      ename = "lean4-mode";
+      version = "2025-06-01";
+      src = nixpkgs.fetchFromGitHub {
+        owner = "leanprover-community";
+        repo = "lean4-mode";
+        rev = "1388f9d1429e38a39ab913c6daae55f6ce799479";
+        hash = "sha256-6XFcyqSTx1CwNWqQvIc25cuQMwh3YXnbgr5cDiOCxBk=";
+      };
+      propagatedUserEnvPkgs = with super.melpaPackages; [
+        dash f flycheck magit-section s
+      ] ++ [self.lsp-mode];
+      LSP_USE_PLISTS=true;
+      buildInputs = propagatedUserEnvPkgs;
+      postInstall = ''
+        cp -r data $out/share/emacs/site-lisp
+      '';
+      # packageRequires = with super.melpaPackages; [ dash f flycheck magit-section lsp-mode s ];
+      # recipe = nixpkgs.writeText "recipe" ''
+      #   (lean4-mode :repo "leanprover/lean4-mode" :fetcher github :files ("*.el"))
+      # '';
+      # fileSpecs = [ "*.el" ];
+        # tail -n +2 lean4-input.el > tmp.el
+        # mv tmp.el lean4-input.el
+      # prePatch = ''
+      #   sed "s/(require 'rx)/(require 'rx)\n(require 'dash)/" -i lean4-syntax.el
+      # '';
     };
 
     # org-roam-ui = super.trivialBuild {
