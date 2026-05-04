@@ -430,6 +430,37 @@ in {
       # patches = [ ./lsp-ui-doc-hide-fix.patch ];
     });
 
+    osx-dictionary = super.osx-dictionary.overrideAttrs (old: {
+      src = nixpkgs.fetchFromGitHub {
+        owner = "xuchunyang";
+        repo = "osx-dictionary.el";
+        rev = "0715e5a3ac659df32a0f0fabfbbeef0228fbd9a9";
+        hash = "sha256-dEPJybsHHQlNFmWvvEJF43jO4NccNZSxEhjcVcTlmmA=";
+      };
+    });
+
+    # osx-dictionary =
+    #   if nixpkgs.stdenv.isDarwin
+    #   then super.osx-dictionary.overrideAttrs
+    #     (old: {
+    #       buildInputs =
+    #         old.buildInputs
+    #         ++ (with nixpkgs.darwin.apple_sdk.frameworks;
+    #           [CoreServices Foundation]);
+    #       dontUnpack = false;
+    #       buildPhase = (old.buildPhase or "") + ''
+    #         cd source
+    #         $CXX -O3 -framework CoreServices -framework Foundation osx-dictionary.m -o osx-dictionary-cli
+    #       '';
+    #       postInstall = ''
+    #         outd=$out/share/emacs/site-lisp/elpa/osx-dictionary-*
+    #         mkdir -p $out/bin
+    #         install -m444 -t $out/bin osx-dictionary-cli
+    #         rm $outd/osx-dictionary.m
+    #       '';
+    #     })
+    #   else super.osx-dictionary;
+
     # cmake-mode = super.melpaPackages.cmake-mode.overrideAttrs (_: {
     #   patchPhase = ''
     #     sed '2s/.*/;; Version: 0.0/' -i Auxiliary/cmake-mode.el
