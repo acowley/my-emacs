@@ -543,14 +543,15 @@ in {
     org-ql
     org-marginalia
     clip2org
-    org-clock-reminder
+    # org-clock-reminder
     org-modern
     svg-tag-mode
     org-tidy
     org-hide-drawers
-    org-sliced-images
+    # org-sliced-images
     org-bookmark-heading
     outli
+    corg
 
     deft
 
@@ -589,8 +590,8 @@ in {
 
     # imenu-anywhere
     god-mode
-    spaceline
-    moody
+    # spaceline
+    # moody
     doom-modeline
     minions
     multiple-cursors
@@ -635,7 +636,7 @@ in {
     znc
 
     corral
-    avy
+    # avy
 
     rust-mode
     # rustic
@@ -645,8 +646,8 @@ in {
 
     dhall-mode
     opencl-c-mode
-    purescript-mode
-    psc-ide
+    # purescript-mode
+    # psc-ide
     paredit
     yaml-mode
     plantuml-mode
@@ -721,18 +722,18 @@ in {
     # casual-calc # transient menus for calc
     # macro-slides
     # master-of-ceremonies
-    ultra-scroll
+    # ultra-scroll
 
-    nova
+    # nova
 
     gptel
     gptel-aibo
     # aider
     aidermacs
-    goose
+    # goose
     claude-code-ide
     eat
-    tramp-hlo
+    # tramp-hlo
     south-theme
     flash
 
