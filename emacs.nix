@@ -767,6 +767,7 @@ in {
     # tramp-hlo
     south-theme
     flash
+    ghostel
 
     (treesit-grammars.with-grammars (p: [
       p.tree-sitter-bash
