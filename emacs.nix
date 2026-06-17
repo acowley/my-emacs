@@ -10,6 +10,7 @@ in {
   myEmacsPackageOverrides = self: super: super.melpaPackages // {
     # inherit (super) pdf-tools;
     inherit (super) vterm;
+    inherit (super) ghostel;
 
     south-theme = super.trivialBuild rec {
       pname = "south-theme";
