@@ -770,6 +770,8 @@ in {
     flash
     ghostel
 
+    dired-toggle-sudo
+
     (treesit-grammars.with-grammars (p: [
       p.tree-sitter-bash
       p.tree-sitter-bibtex
