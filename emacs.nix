@@ -14,12 +14,12 @@ in {
 
     south-theme = super.trivialBuild rec {
       pname = "south-theme";
-      version = "2025-11-11";
+      version = "2025-05-05";
       src = nixpkgs.fetchFromGitHub {
         owner = "SophieBosio";
         repo = "south";
-        rev = "f7855656bb6c390b20358286d116124c0bd4190f";
-        hash = "sha256-TRnjRu2UyeCwZkkuh4/J8cCIQDfwXC05DeJ82cpGj9g=";
+        rev = "2e71111d215c9348f98fa31eef6988caf947c583";
+        hash = "sha256-kEo6OvenjeiEcU8+vCog2Haq4Y7bbd0+SNYLOIsgrOc=";
       };
       propagatedUserEnvPkgs = with super.melpaPackages; [
         autothemer
@@ -41,12 +41,12 @@ in {
 
     claude-code-ide = super.trivialBuild rec {
       pname = "claude-code-ide";
-      version = "2026-02-01";
+      version = "2026-06-01";
       src = nixpkgs.fetchFromGitHub {
         owner = "manzaltu";
         repo = "claude-code-ide.el";
-        rev = "a5494523dc8c3031375aa53d6321abfd9bc7288b";
-        hash = "sha256-Mw5MNx4RMk+2oXcjIVclel1jis1jHTj8S3uqTDYN4KQ=";
+        rev = "a9485f766ea69f6cb3a3f08dea20d44fd6596673";
+        hash = "sha256-6kaTPI2CCsdxxiCpZ7qqciv/HJCQRsJ8084+SqW8Idc=";
       };
       propagatedUserEnvPkgs = with super.melpaPackages; [
         websocket
