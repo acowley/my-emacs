@@ -28,6 +28,21 @@ in {
       buildInputs = propagatedUserEnvPkgs;
     };
 
+    agent-shell-math-renderer = super.trivialBuild rec {
+      pname = "agent-shell-math-renderer";
+      version = "0.1.0";
+      src = nixpkgs.fetchFromGitHub {
+        owner = "alberti42";
+        repo = "agent-shell-math-renderer";
+        rev = "d2dac88e27ae9a2da66bcbc68808bb6217c347ab";
+        hash = "sha256-GzDPZumhXbbEPvtWyjVZ5Dkqt7EUof3yyZ9qF9kqOWw=";
+      };
+      propagatedUserEnvPkgs = with super.melpaPackages; [
+        agent-shell
+      ];
+      buildInputs = propagatedUserEnvPkgs;
+    };
+
     eglot-header-line = super.trivialBuild rec {
       pname = "eglot-header-line";
       version = "2025-11-14";
@@ -769,6 +784,8 @@ in {
     south-theme
     flash
     ghostel
+    agent-shell
+    agent-shell-math-renderer
 
     dired-toggle-sudo
 
