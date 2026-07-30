@@ -576,8 +576,8 @@ in {
     ob-http
     ob-mermaid
     org-noter
-    org-pdftools
-    org-noter-pdftools
+    # org-pdftools
+    # org-noter-pdftools
     outorg
     outshine
     ox-clip
