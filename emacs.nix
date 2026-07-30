@@ -790,6 +790,9 @@ in {
 
     dired-toggle-sudo
 
+    fussy
+    fzfa
+
     (treesit-grammars.with-grammars (p: [
       p.tree-sitter-bash
       p.tree-sitter-bibtex
