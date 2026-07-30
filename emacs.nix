@@ -569,6 +569,7 @@ in {
     ox-reveal
     ox-tufte
     ox-gfm
+    ox-rss
     ob-ipython
     ob-nim
     ob-duckdb
