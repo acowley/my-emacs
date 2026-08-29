@@ -56,12 +56,12 @@ in {
 
     claude-code-ide = super.trivialBuild rec {
       pname = "claude-code-ide";
-      version = "2026-06-01";
+      version = "2026-08-07";
       src = nixpkgs.fetchFromGitHub {
         owner = "manzaltu";
         repo = "claude-code-ide.el";
-        rev = "a9485f766ea69f6cb3a3f08dea20d44fd6596673";
-        hash = "sha256-6kaTPI2CCsdxxiCpZ7qqciv/HJCQRsJ8084+SqW8Idc=";
+        rev = "32a8a904ac21e52c54231b99796d12ae36df9c22";
+        hash = "sha256-LlJn5lbJpN/fHLggy8KmOAFt3abcG0oZAahruuxCSgM=";
       };
       propagatedUserEnvPkgs = with super.melpaPackages; [
         websocket
@@ -787,6 +787,7 @@ in {
     ghostel
     agent-shell
     agent-shell-math-renderer
+    mermaid-mode
 
     dired-toggle-sudo
 
@@ -838,6 +839,7 @@ in {
       p.tree-sitter-scss
       p.tree-sitter-sql
       p.tree-sitter-toml
+      p.tree-sitter-tsx
       p.tree-sitter-typescript
       p.tree-sitter-verilog
       p.tree-sitter-yaml
