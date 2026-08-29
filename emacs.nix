@@ -677,6 +677,7 @@ in {
     clang-format
     mixed-pitch
     magit
+    pinentry
 
     erc-terminal-notifier
     erc-hl-nicks
