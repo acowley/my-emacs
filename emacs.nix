@@ -71,6 +71,33 @@ in {
       buildInputs = propagatedUserEnvPkgs;
     };
 
+    textui = super.trivialBuild rec {
+      pname = "textui";
+      version = "2026-09-06";
+      src = nixpkgs.fetchFromGitHub {
+        owner = "yibie";
+        repo = "textui";
+        rev = "ce37202ec910e03008bd50472b2df1217b5f1a7e";
+        hash = "sha256-n64ntywOG3b4EdLsMJSrfcUYX2ef+JP1IO6B8yLJlWo=";
+      };
+    };
+
+    org-table-widget = super.trivialBuild rec {
+      pname = "org-table-widget";
+      version = "2026-09-10";
+      src = nixpkgs.fetchFromGitHub {
+        owner = "yibie";
+        repo = "org-table-widget";
+        rev = "c4c0f0ff23b439b0f43cdf0a3277754c45971776";
+        hash = "sha256-/UpHUox1HD5G22os3iNAtdRkrrEF7ms6iSZD9jTfalo=";
+      };
+      propagatedUserEnvPkgs = with super.melpaPackages; [
+        super.org
+        self.textui
+      ];
+      buildInputs = propagatedUserEnvPkgs;
+    };
+
     macro-slides = super.trivialBuild {
       pname = "macro-slides";
       version = "0.0";
@@ -794,6 +821,9 @@ in {
 
     fussy
     fzfa
+
+    textui
+    org-table-widget
 
     (treesit-grammars.with-grammars (p: [
       p.tree-sitter-bash
