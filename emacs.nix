@@ -84,12 +84,12 @@ in {
 
     org-table-widget = super.trivialBuild rec {
       pname = "org-table-widget";
-      version = "2026-09-10";
+      version = "2026-09-11";
       src = nixpkgs.fetchFromGitHub {
         owner = "yibie";
         repo = "org-table-widget";
-        rev = "c4c0f0ff23b439b0f43cdf0a3277754c45971776";
-        hash = "sha256-/UpHUox1HD5G22os3iNAtdRkrrEF7ms6iSZD9jTfalo=";
+        rev = "d9e125527383cdde7ffa6d7a1c0380296798a95f";
+        hash = "sha256-wXxtpUVYcXn9XFUtbEe6+ZGOLw8FcJVdetzVFyKTPww=";
       };
       propagatedUserEnvPkgs = with super.melpaPackages; [
         super.org
