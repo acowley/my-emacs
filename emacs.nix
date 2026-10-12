@@ -28,20 +28,21 @@ in {
       buildInputs = propagatedUserEnvPkgs;
     };
 
-    agent-shell-math-renderer = super.trivialBuild rec {
-      pname = "agent-shell-math-renderer";
-      version = "0.1.0";
-      src = nixpkgs.fetchFromGitHub {
-        owner = "alberti42";
-        repo = "agent-shell-math-renderer";
-        rev = "d2dac88e27ae9a2da66bcbc68808bb6217c347ab";
-        hash = "sha256-GzDPZumhXbbEPvtWyjVZ5Dkqt7EUof3yyZ9qF9kqOWw=";
-      };
-      propagatedUserEnvPkgs = with super.melpaPackages; [
-        agent-shell
-      ];
-      buildInputs = propagatedUserEnvPkgs;
-    };
+    # agent-shell-math-renderer = super.trivialBuild rec {
+    #   pname = "agent-shell-math-renderer";
+    #   version = "0.12.0";
+    #   src = nixpkgs.fetchFromGitHub {
+    #     owner = "alberti42";
+    #     repo = "agent-shell-math-renderer";
+    #     rev = "1a13d2d68ac6e8f02a537ddb974b67aa173c636d";
+    #     hash = "sha256-xuXfsEzRGCRfakiQXP7Lee9TsnEdH5JyolziiJNVA9s=";
+    #   };
+    #   propagatedUserEnvPkgs = with super.melpaPackages; [
+    #     agent-shell
+    #     latex-to-svg-backend
+    #   ];
+    #   buildInputs = propagatedUserEnvPkgs;
+    # };
 
     eglot-header-line = super.trivialBuild rec {
       pname = "eglot-header-line";
