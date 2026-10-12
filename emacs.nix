@@ -559,6 +559,10 @@ in {
     outli
     corg
 
+    vulpea
+    vulpea-ui
+    consult-vulpea
+
     deft
 
     biblio biblio-core
