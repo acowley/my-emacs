@@ -246,51 +246,6 @@ in {
       };
     };
 
-    lean4-mode = super.trivialBuild rec {
-      pname = "lean4-mode";
-      ename = "lean4-mode";
-      version = "2025-06-01";
-      src = nixpkgs.fetchFromGitHub {
-        owner = "leanprover-community";
-        repo = "lean4-mode";
-        rev = "1388f9d1429e38a39ab913c6daae55f6ce799479";
-        hash = "sha256-6XFcyqSTx1CwNWqQvIc25cuQMwh3YXnbgr5cDiOCxBk=";
-      };
-      propagatedUserEnvPkgs = with super.melpaPackages; [
-        dash f flycheck magit-section s
-      ] ++ [self.lsp-mode];
-      LSP_USE_PLISTS=true;
-      buildInputs = propagatedUserEnvPkgs;
-      postInstall = ''
-        cp -r data $out/share/emacs/site-lisp
-      '';
-      # packageRequires = with super.melpaPackages; [ dash f flycheck magit-section lsp-mode s ];
-      # recipe = nixpkgs.writeText "recipe" ''
-      #   (lean4-mode :repo "leanprover/lean4-mode" :fetcher github :files ("*.el"))
-      # '';
-      # fileSpecs = [ "*.el" ];
-        # tail -n +2 lean4-input.el > tmp.el
-        # mv tmp.el lean4-input.el
-      # prePatch = ''
-      #   sed "s/(require 'rx)/(require 'rx)\n(require 'dash)/" -i lean4-syntax.el
-      # '';
-    };
-
-    # org-roam-ui = super.trivialBuild {
-    #   pname = "org-roam-ui";
-    #   version = "2021-10-12";
-    #   src = nixpkgs.fetchFromGitHub {
-    #     owner = "org-roam";
-    #     repo = "org-roam-ui";
-    #     rev = "50ebd6c39b40b9b22cd34d932fa9aa5cc334ff37";
-    #     hash = "sha256-I5NGREiViMXDqmY7/4juvLMUqsmnPuRBzaV6pi85TJQ=";
-    #   };
-    #   packageRequires = [self.f self.websocket self.org-roam self.simple-httpd];
-    #   postFixup = ''
-    #     cp -r out $out/share/emacs/site-lisp
-    #   '';
-    # };
-
     org-clock-reminder = super.trivialBuild {
       pname = "org-clock-reminder";
       # version = "2021-10-10";
@@ -386,15 +341,15 @@ in {
       propagatedBuildInputs = old.propagatedBuildInputs or [] ++ [nixpkgs.python3];
     });
 
-    lsp-mode = super.lsp-mode.overrideAttrs (old: {
-      # patches = old.patches or [] ++ [
-      #   ./lsp-unicode.patch
-      # ];
-      LSP_USE_PLISTS=true;
-      postPatch = ''
-        sed -i 's/(getenv "LSP_USE_PLISTS")/"1"/' lsp-protocol.el
-      '';
-    });
+    # lsp-mode = super.lsp-mode.overrideAttrs (old: {
+    #   # patches = old.patches or [] ++ [
+    #   #   ./lsp-unicode.patch
+    #   # ];
+    #   LSP_USE_PLISTS=true;
+    #   postPatch = ''
+    #     sed -i 's/(getenv "LSP_USE_PLISTS")/"1"/' lsp-protocol.el
+    #   '';
+    # });
 
     god-mode = super.god-mode.overrideAttrs (old: {
       src = nixpkgs.fetchFromGitHub {
@@ -445,34 +400,9 @@ in {
       buildInputs = old.buildInputs ++ [self.org-roam];
     });
 
-    # org-roam = super.melpaBuild rec {
-    #   pname = "org-roam";
-    #   version = "1.1.0";
-    #   src = nixpkgs.fetchFromGitHub {
-    #     owner = "jethrokuan";
-    #     repo = "org-roam";
-    #     rev = "v${version}";
-    #     sha256 = "18ljww204kf1pbgrrnx7bn6177lw1bs3npywbx2k1b5j35c3j8xv";
-    #   };
-    #   packageRequires = [ self.f self.dash self.async 
-    #                       self.emacsql self.emacsql-sqlite ];
-    #   recipe = nixpkgs.writeText "recipe" ''
-    #     (org-roam :repo "jethrokuan/org-roam" :fetcher github)
-    #   '';
-    # };
-
-    # ccls = super.ccls.overrideAttrs (old: {
-    #   src = nixpkgs.fetchFromGitHub {
-    #     owner = "MaskRay";
-    #     repo = "emacs-ccls";
-    #     rev = "b8e2f4d9b5bed5b5e8b387ac8e43eff723120b80";
-    #     sha256 = "1g0m5xnapfl5wjlylam5696p49qwwkdlngmjv858fabhhk9z0lin";
-    #   };
+    # lsp-ui = super.lsp-ui.overrideAttrs (_: {
+    #   # patches = [ ./lsp-ui-doc-hide-fix.patch ];
     # });
-
-    lsp-ui = super.lsp-ui.overrideAttrs (_: {
-      # patches = [ ./lsp-ui-doc-hide-fix.patch ];
-    });
 
     osx-dictionary = super.osx-dictionary.overrideAttrs (old: {
       src = nixpkgs.fetchFromGitHub {
@@ -572,7 +502,7 @@ in {
     page-break-lines
     all-the-icons
     nerd-icons
-    impatient-mode
+    # impatient-mode
     # esup
     benchmark-init
     direnv
@@ -608,9 +538,9 @@ in {
     # org-noter-pdftools
     outorg
     outshine
-    ox-clip
+    # ox-clip
     org-mime
-    org-ref
+    # org-ref
     org-roam
     org-roam-bibtex
     xeft
@@ -632,7 +562,7 @@ in {
     deft
 
     biblio biblio-core
-    helm-bibtex
+    # helm-bibtex
     parsebib
     auctex
     auctex-latexmk
@@ -689,12 +619,13 @@ in {
   #   # structured-haskell-mode
   #   intero
   # ] ++ [
-    lsp-mode
-    lsp-ui
-    lsp-haskell
-    lsp-treemacs
-    # lsp-docker
-    ccls
+
+    # lsp-mode
+    # lsp-ui
+    # lsp-haskell
+    # lsp-treemacs
+
+    # ccls
     eglot-signature-eldoc-talkative
     eldoc-box
     sideline-eglot
@@ -707,10 +638,10 @@ in {
     magit
     pinentry
 
-    erc-terminal-notifier
-    erc-hl-nicks
-    ercn
-    znc
+    # erc-terminal-notifier
+    # erc-hl-nicks
+    # ercn
+    # znc
 
     corral
     # avy
@@ -721,7 +652,6 @@ in {
     flycheck-rust
     #racer
 
-    dhall-mode
     opencl-c-mode
     # purescript-mode
     # psc-ide
@@ -762,7 +692,7 @@ in {
     # lean4-mode
     org-roam-ui
     which-key
-    nim-mode
+    # nim-mode
 
     bazel
 
@@ -794,7 +724,7 @@ in {
 
     org-present
     visual-fill-column
-    pikchr-mode
+    # pikchr-mode
 
     # casual-calc # transient menus for calc
     # macro-slides
@@ -820,7 +750,7 @@ in {
 
     dired-toggle-sudo
 
-    fussy
+    # fussy
     fzfa
 
     textui
@@ -920,9 +850,6 @@ in {
   #   })).overrideScope self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
   # myemacsPgtk = ((self.emacsPackagesFor self.emacs30-pgtk).overrideScope self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
   myemacsPgtk = ((self.emacsPackagesFor self.emacs-unstable-pgtk).overrideScope self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
-
-
-  myemacsLsp = ((self.emacsPackagesFor self.emacsLsp).overrideScope' self.myEmacsPackageOverrides).emacsWithPackages self.myEmacsPackages;
 
   emacsGccMac = self.emacsGcc.overrideAttrs (old: {
     configureFlags = old.configureFlags or [] ++ ["--with-mac-metal"];
