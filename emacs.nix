@@ -687,6 +687,7 @@ in {
     restclient
     gif-screencast
     flyspell-correct
+    flyspell-lazy
     gnuplot
 
     file-info
