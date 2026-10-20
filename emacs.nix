@@ -74,12 +74,13 @@ in {
 
     textui = super.trivialBuild rec {
       pname = "textui";
-      version = "2026-09-06";
+      version = "2026-09-19";
       src = nixpkgs.fetchFromGitHub {
         owner = "yibie";
         repo = "textui";
-        rev = "ce37202ec910e03008bd50472b2df1217b5f1a7e";
-        hash = "sha256-n64ntywOG3b4EdLsMJSrfcUYX2ef+JP1IO6B8yLJlWo=";
+        # md-mode needs textui-layout.el, which the v0.8.0 tag predates.
+        rev = "8b3010d0f251b52dd1867c741d18bf66e405922d";
+        hash = "sha256-3WY/dPfcssviC73AP4hF4v1kyM1IlI3PgWW/ZHHH1pE=";
       };
     };
 
@@ -94,6 +95,21 @@ in {
       };
       propagatedUserEnvPkgs = with super.melpaPackages; [
         super.org
+        self.textui
+      ];
+      buildInputs = propagatedUserEnvPkgs;
+    };
+
+    md-mode = super.trivialBuild rec {
+      pname = "md-mode";
+      version = "0.5.0";
+      src = nixpkgs.fetchFromGitHub {
+        owner = "yibie";
+        repo = "md-mode";
+        rev = "v${version}";
+        hash = "sha256-kMF+I08lOcNeO7PQQ7YYnJtiBlZjLI/JgFlHlpqL7Bc=";
+      };
+      propagatedUserEnvPkgs = with super.melpaPackages; [
         self.textui
       ];
       buildInputs = propagatedUserEnvPkgs;
@@ -760,6 +776,7 @@ in {
 
     textui
     org-table-widget
+    md-mode
 
     (treesit-grammars.with-grammars (p: [
       p.tree-sitter-bash
