@@ -544,6 +544,7 @@ in {
     ox-tufte
     ox-gfm
     ox-rss
+    htmlize
     ob-ipython
     ob-nim
     ob-duckdb
